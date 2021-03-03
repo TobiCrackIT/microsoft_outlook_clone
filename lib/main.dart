@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: Text('ML App'),
+        title: Text('Malaria App'),
       ),
       body: _loading
           ? Container(
