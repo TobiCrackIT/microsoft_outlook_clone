@@ -59,32 +59,42 @@ class _HomeState extends State<Home> {
       ),
       body: _loading
           ? Container(
-        alignment: Alignment.center,
-        child: CircularProgressIndicator(),
-      )
-          : Container(
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _image == null ? Container() : Image.file(_image),
-            SizedBox(
-              height: 20,
-            ),
-            _outputs != null
-                ? Text(
-              "${_outputs[0]["label"]}",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
-                background: Paint()..color = Colors.white,
-              ),
+              alignment: Alignment.center,
+              child: CircularProgressIndicator(),
             )
-                : Container()
-          ],
-        ),
-      ),
+          : Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _image == null
+                      ? Container(
+                          child: Text(
+                            "Please select an image to classify",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        )
+                      : Image.file(_image),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  _outputs != null
+                      ? Text(
+                          "${_outputs[0]["label"]}",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20.0,
+                            background: Paint()..color = Colors.white,
+                          ),
+                        )
+                      : Container()
+                ],
+              ),
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: pickImage,
         tooltip: 'Pick image',
