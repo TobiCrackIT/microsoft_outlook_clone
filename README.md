@@ -1,6 +1,6 @@
 # mallam
 
-A new object classification Flutter app
+A new Flutter project
 
 ## Getting Started
 
